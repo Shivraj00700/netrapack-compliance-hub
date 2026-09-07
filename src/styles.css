@@ -99,3 +99,44 @@
     var(--success) 100%
   );
 }
+
+/* --- NetraPack HUD animations --- */
+@keyframes np-laser {
+  0% { top: 4%; opacity: 0.25; }
+  50% { top: 92%; opacity: 1; }
+  100% { top: 4%; opacity: 0.25; }
+}
+@keyframes np-radar {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes np-ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  70% { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+@keyframes np-sweep {
+  to { transform: rotate(360deg); }
+}
+
+@utility np-laser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+  box-shadow: 0 0 12px 2px color-mix(in oklab, var(--saffron) 60%, transparent);
+  animation: np-laser 2.6s ease-in-out infinite;
+}
+
+@utility np-radar-pulse {
+  animation: np-radar 1.8s ease-out infinite;
+}
+
+@utility np-ping-ring {
+  animation: np-ring 2s ease-out infinite;
+}
+
+@utility np-sweep {
+  animation: np-sweep 1.6s linear infinite;
+}
