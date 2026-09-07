@@ -4,7 +4,7 @@ import { API_BASE, CHAT_FOOTER } from "@/lib/netrapack";
 
 type Msg = { role: "user" | "ai"; text: string };
 
-export function Chatbot({ scanId }: { scanId?: string }) {
+export function Chatbot({ scanId }: { scanId?: string | undefined }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
